@@ -2,10 +2,10 @@
   padding-top: 1%;
 }
 
-#body_loggin{
+#bodyLogin{
   background: #3E3F41;
 }
-.container-fluid{ 
+.container-fluid { 
 }
 .btn {
   background-color: #F6A800;
@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-#logo_login {
+#logoLogin {
   width: 50%;
   text-align: center;
 }
@@ -36,10 +36,33 @@ small {
   padding: 10px;
 }
 
-#grupo_botones {
+#grupoBotones {
   padding: 30% 3%;
   margin: 10px 2px;
 }
-#body_menu{
+#bodyMenu{
+  background: #DDDEE0;
+}
+
+#imagenPerfil {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 50%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.bodyPerfil{
+  background: #DDDEE0;
+}
+
+.topText {
+  background-color: #F6A800;
+  color: white;
+  text-align: center;
+}
+
+#pFrecuentes {
   background: #DDDEE0;
 }

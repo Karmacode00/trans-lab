@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body id="body_loggin">
+<body id="bodyLogin">
   <div class="container-fluid">
     <div class="container">
       <div class="row">
@@ -21,7 +21,7 @@
         <div class="col-sm">
           <div>
 
-            <img id="logo_login" class="center" src="docs/imagen.png" alt="Logotipo de translab">
+            <img id="logoLogin" class="center" src="docs/imagen.png" alt="Logotipo de translab">
             <h2>TRANS-LAB</h2>
           </div>
           <form class="login">
@@ -48,6 +48,19 @@
       </div>
     </div>
   </div>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB36tWrQZ9HsanvsLl--fx7U2V79K9IzdA",
+    authDomain: "translab-95810.firebaseapp.com",
+    databaseURL: "https://translab-95810.firebaseio.com",
+    projectId: "translab-95810",
+    storageBucket: "translab-95810.appspot.com",
+    messagingSenderId: "334579930861"
+  };
+  firebase.initializeApp(config);
+</script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
