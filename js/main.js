@@ -1,29 +1,90 @@
-/* function IsEmpty(objectfield,stringfield)
-{
-    objectvalue = objectfield.value.length;
-    if(objectvalue=="")
-    {
-        alert("Oops.. Please fill out the value of "+stringfield);
-        return false;
-    }
-    else
-        return true;
+// Iniciar y registrar 
+window.onload = ()=>{
+    firebase.auth().onAuthStateChanged((user)=>{
+      if(user){
+        //Si estamos logueados
+
+        console.log("User > "+JSON.stringify(user));
+        {window.location="perfil.html"}
+        alert("Bienvenido(a)")
+      }else{
+        //No estamos logueados
+
+        console.log('Usuario no logeado');
+        // alert("Iniciar Sesión")    
+      }
+    });
+
 }
 
-function validateEmail(field,alerttxt)
-{
-    with (field)
-    {
-        apos=value.indexOf("@");
-        dotpos=value.lastIndexOf(".");
-        if (apos<1||dotpos-apos<2){
-            alert(alerttxt);return false;
+    function register() {
+        const emailValue = email.value;
+        const passwordValue = password.value;
+        firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
+          .then(()=>{
+            console.log("Usuario registrado");
+            {window.location="perfil.html"}
+          })
+          .catch((error)=>{
+            console.log("Error de firebase > "+error.code);
+            console.log("Error de firebase, mensaje > "+error.message);
+          });
         }
-        else {
-            return true;
+      
+      function login() {
+        const emailValue = email.value;
+        const passwordValue = password.value;
+        firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
+          .then(()=>{
+            console.log("Usuario con login exitoso")
+            {window.location="perfil.html"}
+          })
+          .catch(()=>{
+            console.log("Error de firebase > "+error.code);
+            console.log("Error de firebase, mensaje > "+error.message);
+          });
         }
-    }
-}
+    
+
+// Guardar tarjetas para caada usuario
+
+  firebase.database().ref('tarjetas')
+  .limitToLast(6)
+  .once('value')
+  .then((messages)=>{
+    console.log("Tarjetas > "+JSON.stringify(messages));
+  })
+  .catch(()=>{
+
+  })
+
+    // Nuevos mensajes usando evento on child_added
+    firebase.database().ref('tarjetas')
+    .limitToLast(1)
+    .on('child_added', (newCard)=>{
+      cardContainer.innerHTML +=`
+        <p>${newCard.val().text}</p>`;
+    })
+
+
+// Usaremos una colección para guardar los mensajes, llamada messages
+function sendCard(){
+    const currentUser = firebase.auth().currentUser;
+    const  cardNumber = tarjeta.value;
+  
+    // Para tener una nueva llave en la colección messages
+    const newCardKey = firebase.database().ref().child('tarjetas').push().key;
+  
+    firebase.database().ref(`tarjetas/${newCardKey}`).set({
+      creator : currentUser.uid,
+      creatorName : currentUser.displayName,
+      cardNumber : cardNumber,
+    });
+  }
+
+
+
+/*
 
 function validatePassword(fld) {
   var error = "";

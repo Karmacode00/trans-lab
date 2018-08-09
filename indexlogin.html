@@ -21,22 +21,21 @@
         <div class="col-sm">
           <div>
 
-            <img id="logoLogin" class="center" src="docs/imagen.png" alt="Logotipo de translab">
+            <img id="logoLogin" class="center" src="docs/imagen.png" alt="logoTranslab">
             <h2>TRANS-LAB</h2>
           </div>
           <form class="login">
             <div class="form-group">
-              <label for="exampleInputEmail1"></label>
-              <input type="email" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+              <label for="email"></label>
+              <input type="email" class="form-control"  id="email" placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
              
-              <!--  
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1"></label>
-              <input type="password" maxlength="8" class="form-control" id="exampleInputPassword1" placeholder="Password" pattern="[0-9]{8}">
+              <label for="password"></label>
+              <input type="password" maxlength="8" class="form-control" id="password" placeholder="Password" pattern="[0-9]{8}">
             </div>
-            <button type="submit" class="btn center btn-primary" onclick="location.href='menu.html'">INICIAR SESIÓN</button>
+            <button type="submit" class="btn center btn-primary" onclick="register()">REGISTRAR</button>
+            <button type="submit" class="btn center btn-primary" onclick="login()">INICIAR SESIÓN</button>
             <small>¿Olvidaste tu constraseña?</small>
           </form>
           <div>
@@ -49,6 +48,7 @@
     </div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
 <script>
   // Initialize Firebase
   var config = {

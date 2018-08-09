@@ -49,17 +49,31 @@
               <input class="center" type="text" placeholder="Número de tarjeta" id="tarjeta">
             </div>
             <div class="margen">
-              <button class="btn btn-primary btn-lg btn-block" onclick="">AGREGAR TARJETA</button>
+              <button class="btn btn-primary btn-lg btn-block" onclick="sendCard()">AGREGAR TARJETA</button>
             </div>
             <div>
-              <ul class="list-group" style="padding-bottom: 50px" id="tarjetas">
-                <li class="list-group-item">Agrega tus tarjetas</li>
+              <ul class="list-group" style="padding-bottom: 50px" id="cardContainer">
+               
               </ul>
             </div>
           </div>
           <div class="col-sm">
           </div>
         </div>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyB36tWrQZ9HsanvsLl--fx7U2V79K9IzdA",
+            authDomain: "translab-95810.firebaseapp.com",
+            databaseURL: "https://translab-95810.firebaseio.com",
+            projectId: "translab-95810",
+            storageBucket: "translab-95810.appspot.com",
+            messagingSenderId: "334579930861"
+          };
+          firebase.initializeApp(config);
+        </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
